@@ -19,7 +19,7 @@ CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
 #
 # Make CMake stop whining about having target with full lib names and some that
 # must be searched for.
-#
+cmake_policy(SET CMP0026 OLD)
 if(COMMAND cmake_policy)
   cmake_policy(SET CMP0003 NEW)
 endif(COMMAND cmake_policy)
@@ -57,6 +57,8 @@ IF (MSVC80)
   SET(CMAKE_MODULE_LINKER_FLAGS_RELEASE  "${CMAKE_MODULE_LINKER_FLAGS_RELEASE}  /DEBUG /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /MACHINE:X86 /PROFILE")
   SET(CMAKE_SHARED_LINKER_FLAGS_RELEASE  "${CMAKE_SHARED_LINKER_FLAGS_RELEASE}  /DEBUG /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /MACHINE:X86 /PROFILE")
 ENDIF(MSVC80)
+
+  SET(CMAKE_CXX_FLAGS_RELEASE  "${CMAKE_CXX_FLAGS_RELEASE}  -fpermissive")
 
 #-------------------------------------------------------------------------------
 #
