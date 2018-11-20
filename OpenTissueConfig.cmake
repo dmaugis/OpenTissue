@@ -13,7 +13,7 @@
 #
 
 SET( OPENTISSUE_FOUND 1 )
-SET(OPENTISSUE_INCLUDE_DIRS "/Users/kenny/Documents/OpenTissue_sandbox;/Users/kenny/Documents/OpenTissue_sandbox/third_party/include;/opt/local/include;/System/Library/Frameworks/OpenGL.framework;/System/Library/Frameworks/GLUT.framework/Headers;/opt/local/include")
-SET(OPENTISSUE_LIBRARY_DIRS "/Users/kenny/Documents/OpenTissue_sandbox/third_party/lib/linux")
-SET(OPENTISSUE_LIBS "/System/Library/Frameworks/AGL.framework;/System/Library/Frameworks/OpenGL.framework;-framework GLUT;-framework Cocoa;/opt/local/lib/libGLEW.dylib;/usr/lib/libatlas.dylib;/usr/lib/liblapack.dylib;/usr/lib/libcblas.dylib;Triangle;TetGen;TinyXML")
+SET(OPENTISSUE_INCLUDE_DIRS "/opentissue;/opentissue/third_party/include;/usr/include;/usr/include;/usr/local/include;/usr/include;/usr/include;/usr/include;/usr/include")
+SET(OPENTISSUE_LIBRARY_DIRS "/opentissue/third_party/lib/linux")
+SET(OPENTISSUE_LIBS "/usr/lib/x86_64-linux-gnu/libCg.so;/usr/lib/x86_64-linux-gnu/libCgGL.so;/usr/lib/x86_64-linux-gnu/libGLU.so;/usr/local/lib/x86_64-linux-gnu/libGL.so;/usr/lib/x86_64-linux-gnu/libglut.so;/usr/lib/x86_64-linux-gnu/libXmu.so;/usr/lib/x86_64-linux-gnu/libXi.so;/usr/lib/x86_64-linux-gnu/libGLEW.so;/usr/lib/libatlas.so;/usr/lib/liblapack.so;/usr/lib/liblapack_atlas.so;/usr/lib/libcblas.so;/usr/lib/x86_64-linux-gnu/libIL.so;/usr/lib/x86_64-linux-gnu/libILU.so;/usr/lib/x86_64-linux-gnu/libILUT.so;Triangle;/opentissue/third_party/lib/linux/libqhull.a;TetGen;TinyXML")
 SET(OPENTISSUE_FLAGS "-DTIXML_USE_STL")

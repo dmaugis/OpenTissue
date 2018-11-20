@@ -8,9 +8,7 @@
 #  TetGen, TinyXML, and Triangle are as this writting (May 2007) only
 #  distributed as source code, so we need to built these on both
 #  windows and linux.
-IF(WIN32)
-  SUBDIRS(qhull)
-ENDIF(WIN32)
+SUBDIRS(qhull)
 SUBDIRS(TetGen)
 SUBDIRS(TinyXML)
 SUBDIRS(Triangle)

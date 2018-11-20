@@ -2,10 +2,10 @@
 #
 # QHull is distributed with Gentoo-Portage, so we only need to built it ourself
 # on windows.
+# Well...no, it's not distributed with compatible version on ubuntu16 soooo...
 #
-IF(WIN32)
 
-  ADD_LIBRARY(qhull 
+ADD_LIBRARY(qhull 
     geom.c   
     global.c  
     mem.c    
@@ -33,6 +33,7 @@ IF(WIN32)
   #
   # Copy static lib into correct folder using a post-build event
   #
+IF(WIN32)
   ADD_CUSTOM_COMMAND(
     TARGET qhull
     POST_BUILD
@@ -45,7 +46,6 @@ IF(WIN32)
     COMMAND ${CMAKE_COMMAND}
     ARGS -E copy ${OpenTissue_BINARY_DIR}/third_party/bundled/qhull/release/qhull.lib ${OpenTissue_SOURCE_DIR}/third_party/lib/windows
     )
-
   MAKE_DIRECTORY("${OpenTissue_SOURCE_DIR}/third_party/include/windows/qhull/")
   FILE( GLOB_RECURSE QHULL_HEADER_FILES *.h )
   FOREACH( file ${QHULL_HEADER_FILES})
@@ -56,13 +56,29 @@ IF(WIN32)
       ARGS -E copy ${file} ${OpenTissue_SOURCE_DIR}/third_party/include/windows/qhull/
       )
   ENDFOREACH( file ${QHULL_HEADER_FILES})
-
-  #-----------------------------------------------------------------------------
-  #
-  # Use the CMake Install functionality
-  #
   FILE( GLOB_RECURSE QHULL_HEADER_FILES *.h )
   INSTALL(TARGETS qhull ARCHIVE DESTINATION third_party/lib/windows)
   INSTALL( FILES ${QHULL_HEADER_FILES} DESTINATION third_party/include/windows/qhull )
-  
+ELSE(WIN32)
+  ADD_CUSTOM_COMMAND(
+    TARGET qhull
+    POST_BUILD
+    COMMAND ${CMAKE_COMMAND}
+    ARGS -E copy ${OpenTissue_BINARY_DIR}/third_party/bundled/qhull/libqhull.a ${OpenTissue_SOURCE_DIR}/third_party/lib/linux
+    )
+  MAKE_DIRECTORY("${OpenTissue_SOURCE_DIR}/third_party/include/linux/qhull/")
+  FILE( GLOB_RECURSE QHULL_HEADER_FILES *.h )
+  FOREACH( file ${QHULL_HEADER_FILES})
+    ADD_CUSTOM_COMMAND(
+      TARGET qhull
+      POST_BUILD
+      COMMAND ${CMAKE_COMMAND}
+      ARGS -E copy ${file} ${OpenTissue_SOURCE_DIR}/third_party/include/linux/qhull/
+      )
+  ENDFOREACH( file ${QHULL_HEADER_FILES})
+  FILE( GLOB_RECURSE QHULL_HEADER_FILES *.h )
+  INSTALL(TARGETS qhull ARCHIVE DESTINATION third_party/lib/linux)
+  INSTALL( FILES ${QHULL_HEADER_FILES} DESTINATION third_party/include/linux/qhull )
 ENDIF(WIN32)
+
+  

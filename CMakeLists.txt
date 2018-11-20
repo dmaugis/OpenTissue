@@ -9,6 +9,9 @@ IF(${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_BINARY_DIR})
     )
 ENDIF(${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_BINARY_DIR})
 
+include_directories(/opentissue/third_party/include/linux/)
+link_directories(/opentissue/third_party/lib/linux/)
+
 #-----------------------------------------------------------------------------
 #
 # No backward compatibility here!!!
