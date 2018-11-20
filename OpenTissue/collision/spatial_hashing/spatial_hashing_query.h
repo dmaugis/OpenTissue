@@ -152,7 +152,7 @@ namespace OpenTissue
         this->clear();
         self.first_pass(d0,d1);
 
-        reset(results);
+        this->reset(results);
         init_query();
         for(query_iterator q=q0;q!=q1;++q)
           query( (*q), results, type);
@@ -179,7 +179,7 @@ namespace OpenTissue
         , report_type const & type
         )
       {
-        reset(results);
+        this->reset(results);
         init_query();
         for(query_iterator q=q0;q!=q1;++q)
           query( (*q), results, type );
@@ -204,7 +204,7 @@ namespace OpenTissue
         , report_type const & type
         )
       {
-        reset(results);
+        this->reset(results);
         query(q, results, type );
       }
 
@@ -354,8 +354,8 @@ namespace OpenTissue
 
         ++m_query_stamp;
 
-        point_type       min_corner = min_coord(query);  //--- by collision policy
-        point_type       max_corner = max_coord(query);  //--- by collision policy
+        point_type       min_corner = this->min_coord(query);  //--- by collision policy
+        point_type       max_corner = this->max_coord(query);  //--- by collision policy
         triplet_type     m          = get_triplet(min_corner);
         triplet_type     M          = get_triplet(max_corner);
 

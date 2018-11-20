@@ -82,7 +82,7 @@ namespace OpenTissue
       */
       real_type laplacian(const vector& r) const
       {
-        if (!checkRange(r))
+        if (!this->checkRange(r))
           return 0.;
         return real_type(m_m*(base_type::m_radius-length(r)));
       }
