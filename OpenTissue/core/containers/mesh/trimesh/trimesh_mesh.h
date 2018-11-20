@@ -204,7 +204,7 @@ namespace OpenTissue
         vertex_handle add_vertex()
         {
           vertex_handle v = this->create_vertex();
-          vertex_iterator vit = get_vertex_iterator(v);
+          vertex_iterator vit = this->get_vertex_iterator(v);
           trimesh_core_access::set_owner(vit,this);
           return v;
         };
@@ -213,17 +213,17 @@ namespace OpenTissue
         vertex_handle add_vertex(vector3_type const & coord)
         {
           vertex_handle v = add_vertex();
-          get_vertex_iterator(v)->m_coord = coord;
+          this->get_vertex_iterator(v)->m_coord = coord;
           return v;
         };
 
         face_handle add_face(vertex_handle const & v0,vertex_handle const & v1,vertex_handle const & v2)
         {
-          if(! is_valid_vertex_handle(v0) )
+          if(! this->is_valid_vertex_handle(v0) )
             return this->null_face_handle();
-          if(! is_valid_vertex_handle(v1) )
+          if(! this->is_valid_vertex_handle(v1) )
             return this->null_face_handle();
-          if(! is_valid_vertex_handle(v2) )
+          if(! this->is_valid_vertex_handle(v2) )
             return this->null_face_handle();
           if(v0==v1)
             return this->null_face_handle();
@@ -234,7 +234,7 @@ namespace OpenTissue
 
           //--- Create the face
           face_handle f = this->create_face();
-          face_iterator fit = get_face_iterator(f);
+          face_iterator fit = this->get_face_iterator(f);
           trimesh_core_access::set_owner(fit,this);
 
           trimesh_core_access::set_vertex0_handle(fit,v0);

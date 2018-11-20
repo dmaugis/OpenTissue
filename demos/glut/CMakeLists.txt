@@ -1,4 +1,4 @@
-#SUBDIRS(chanvese_segmentation)
+SUBDIRS(chanvese_segmentation)
 #SUBDIRS(character_animation)
 #SUBDIRS(curvature_mesh_bvh)
 SUBDIRS(damped_wave_equations)
