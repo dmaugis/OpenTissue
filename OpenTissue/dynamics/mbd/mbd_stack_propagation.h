@@ -105,7 +105,7 @@ namespace OpenTissue
       template <typename algorithm_type>
       void run(group_type & group, algorithm_type & algorithm, fixate_tag, upward_tag )
       {
-        m_cnt = analyze(group,m_layers);
+        m_cnt = this->analyze(group,m_layers);
         for(index_type height=0;height<m_cnt;++height)
         {
           fixiate(height,m_layers[height]);

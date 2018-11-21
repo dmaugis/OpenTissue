@@ -110,7 +110,7 @@ namespace OpenTissue
             node->create_bv(bvh);
             graph.remove_sub_nodes(node);
           }
-          this->update(node);//--- from policy
+          bottom_up_policy::update(node);//--- from policy
         }
         graph.clear();
         std::cout << "BVHBottomUpConstructor::run(): " << bvh.size() << " nodes created." << std::endl;

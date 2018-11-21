@@ -51,7 +51,7 @@ namespace OpenTissue
       */
       real_type evaluate(const vector& r) const
       {
-        if (!checkRange(r))
+        if (!this->checkRange(r))
           return 0.;
         register real_type tmp = length(r);
         if (tmp <= 0.)
@@ -65,7 +65,7 @@ namespace OpenTissue
       */
       vector gradient(const vector& r) const
       {
-        if (!checkRange(r))
+        if (!this->checkRange(r))
           return vector(0);
         register real_type tmp = length(r);
         if (tmp <= 0.) {

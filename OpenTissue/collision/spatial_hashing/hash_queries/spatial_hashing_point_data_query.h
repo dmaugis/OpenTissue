@@ -27,8 +27,8 @@ namespace OpenTissue
       {
         for(data_iterator data=begin;data!=end;++data)
         {
-          typename hash_grid::point_type p = position(*data);
-          get_cell(p).add( *data );
+          typename hash_grid::point_type p = this->position(*data);
+          this->get_cell(p).add( *data );
         }
       }
 

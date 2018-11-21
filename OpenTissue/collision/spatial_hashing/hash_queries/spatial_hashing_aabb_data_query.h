@@ -46,10 +46,10 @@ namespace OpenTissue
         {
           ++stamp;
 
-          point_type min_corner = min_coord( *data ); //--- from collision policy
-          point_type max_corner = max_coord( *data ); //--- from collision policy
-          triplet_type m = get_triplet(min_corner);
-          triplet_type M = get_triplet(max_corner);
+          point_type min_corner = this->min_coord( *data ); //--- from collision policy
+          point_type max_corner = this->max_coord( *data ); //--- from collision policy
+          triplet_type m = this->get_triplet(min_corner);
+          triplet_type M = this->get_triplet(max_corner);
 
           assert( m(0) <= M(0) || !"Minimum was larger than maximum");
           assert( m(1) <= M(1) || !"Minimum was larger than maximum");
@@ -60,7 +60,7 @@ namespace OpenTissue
             for ( triplet(1)= m(1) ; triplet(1) <= M(1); ++triplet(1) )
               for ( triplet(2)= m(2) ; triplet(2) <= M(2); ++triplet(2) )
               {
-                cell_type & cell = get_cell(triplet);
+                cell_type & cell = this->get_cell(triplet);
                 if(cell.m_query_stamp==stamp)
                   continue;
                 cell.m_query_stamp=stamp;

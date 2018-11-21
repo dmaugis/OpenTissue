@@ -66,7 +66,7 @@ namespace OpenTissue
           if(!mbd::is_all_bodies_sleepy(*group))
             this->get_stepper()->run(*group,time_step);
         }
-        update_time(time_step);
+        this->update_time(time_step);
       }
 
     };

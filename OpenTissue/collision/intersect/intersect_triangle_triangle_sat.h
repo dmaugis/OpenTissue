@@ -14,19 +14,6 @@ namespace OpenTissue
   namespace intersect
   {
 
-    template<typename vector3_type>
-    bool triangle_triangle_sat(
-      vector3_type const & a0
-      , vector3_type const & a1
-      , vector3_type const & a2
-      , vector3_type const & b0
-      , vector3_type const & b1
-      , vector3_type const & b2        
-      )
-    {
-      return !separation_triangle_triangle(a0,a1,a2,b0,b1,b2);
-    }
-
 
     /**
     * Triangle Separation Axis Test (SAT).
@@ -188,6 +175,19 @@ namespace OpenTissue
       }
       return false;
     }
+    template<typename vector3_type>
+    bool triangle_triangle_sat(
+      vector3_type const & a0
+      , vector3_type const & a1
+      , vector3_type const & a2
+      , vector3_type const & b0
+      , vector3_type const & b1
+      , vector3_type const & b2        
+      )
+    {
+      return !separation_triangle_triangle<vector3_type>(a0,a1,a2,b0,b1,b2);
+    }
+
 
   } //End of namespace intersect
 
